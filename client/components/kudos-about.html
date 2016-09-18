@@ -11,9 +11,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-image/iron-image.html"/>
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/platinum-sw/platinum-sw-elements.html">
 
 <dom-module id="kudos-about">
   <template>
+      <platinum-sw-register
+        auto-register
+        skip-waiting
+        clients-claim
+        reload-on-install
+        href="sw-import.js">
+      <platinum-sw-cache
+          default-cache-strategy="networkFirst">
+      </platinum-sw-cache>
+    </platinum-sw-register>
     <style include="shared-styles">
       :host {
         display: block;
@@ -30,8 +41,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           height: auto;
       }
     </style>
+    
 
     <div class="card">
+      
       <h1>Acerca de kudos</h1>
       <p>kudos, una forma de agradecer, aplaudir y reconocer el aporte de cada equipo por generar soluciones increíbles.</p>
     </div>

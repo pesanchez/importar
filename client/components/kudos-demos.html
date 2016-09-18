@@ -1,5 +1,6 @@
 <link rel="import" href="kudos-login.html">
 <link rel="import" href="kudos-list.html">
+<link rel="import" href="../bower_components/platinum-sw/platinum-sw-elements.html">
 <dom-module id="kudos-demos">
   <style include="shared-styles">
     :host {
@@ -79,6 +80,16 @@
     }    
   </style>
   <template>
+      <platinum-sw-register
+        auto-register
+        skip-waiting
+        clients-claim
+        reload-on-install
+        href="sw-import.js">
+      <platinum-sw-cache
+          default-cache-strategy="networkFirst">
+      </platinum-sw-cache>
+    </platinum-sw-register>
     <div hidden$="{{stateLogin}}" width="100%" style="text-align:center;">
       Bienvenido a KUDOS, para poder dejar tus agradecimientos debes identificarte:<br>
       <paper-button class="green" raised on-tap="signInWithGoogle">
